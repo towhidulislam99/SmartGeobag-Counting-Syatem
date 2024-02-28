@@ -64,9 +64,10 @@
 
 
 <div class="Proposed-Methodology">
-    <h1>Proposed TSGCS Methodology: </h1>
-    <h3>1. Preparing Dataset: </h3>
-    <p>Before applying YOLOv3 in our proposed system, it is mandatory to collect image dataset of geobags properly because it will assist us to achieve better accuracy. After Collecting the dataset, we prepare our dataset as follows:</p>
+    {% comment %} <h1>Proposed TSGCS Methodology: </h1> {% endcomment %}
+    <h3 style ="align-items: center; font-size:  25px; text-align: center;">System Overview </h3>
+    <div class="line-1"></div>
+    {% comment %} <p>Before applying YOLOv3 in our proposed system, it is mandatory to collect image dataset of geobags properly because it will assist us to achieve better accuracy. After Collecting the dataset, we prepare our dataset as follows:</p> {% endcomment %}
 
     <div class="proprosed-img-1">
         {%for i in preparingdatasetdata%}
@@ -75,7 +76,7 @@
         {%endfor%}
     </div>
 
-    <h3>2. Training and Testing Procedures:</h3>
+    {% comment %} <h3>2. Training and Testing Procedures:</h3>
 
     <p>In our proposed system, we utilize YOLO (You Look Only Once) based Deep Learning architecture to detect the multi-geobag from image or video. There are different versions (v1, v2, v3, v4, v5) available of YOLO. In this case, we used YOLOv3 in our proposed system. YOLOv3 has a very high accuracy while also being able to run in real-time or used for real-time applications. The algorithm uses only one forward propagation pass through the network to make the predictions. YOLOv3 uses a new backbone network Darknet-53 that utilizes residual connections as well as some improvements to the bounding box prediction step, and use of three different scales from which to extract features. The Figure (6) describe the training and testing procedures of the proposed YOLV3 based TSGCS. </p>
 
@@ -84,7 +85,7 @@
         <a href=""><img src="{{ i.testing_procedures_img.url }}" alt="Your Image Description"></a>
         <p>{{i.testing_procedures_figure_text}}</p>
         {%endfor%}
-    </div>
+    </div> {% endcomment %}
 
 
 </div>

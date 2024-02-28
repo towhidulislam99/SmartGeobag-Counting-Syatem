@@ -69,6 +69,13 @@ body {
     margin-bottom: 50px;
 }
 
+.line-1 {
+    border-bottom: 1px solid #858383;
+    margin-left: 300px;
+    margin-right: 300px;
+    margin-bottom: 50px;
+}
+
 .Details{
 
 }
