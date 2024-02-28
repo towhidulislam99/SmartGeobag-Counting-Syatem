@@ -1,0 +1,287 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/table.css' %}">
+    <title> Smart Geobag Counting System </title>
+<style>
+  /* Button style */
+
+.link_button a {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff; /* Blue color */
+  color: #fff; /* White text color */
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.link_button a:hover {
+  background-color: #0056b3; /* Darker blue color on hover */
+}
+</style>
+
+</head>
+<body>
+<div class = "Top-Section">
+
+    <div class="top_bar">
+        <div class = "logo">
+          <a href=""><img src="{% static 'images/logo.png' %}"  alt="" >
+            </a>
+        <h1>Smart Geobag Counting System</h1>
+
+    </div>
+
+    </div>
+</div>
+
+<div class="body-section">
+
+  {% comment %} ====================================================================================== {% endcomment %}
+
+  <h3 class="card-title fw-semibold mb-4" style="text-align: center;">Geobag RiverBank Table Page</h3>
+
+  <div class="link_button">
+    <a href="{% url 'geobagriverbank' %}">Geobag RiverBank Input</a>
+  </div>
+
+  <div class="search-container">
+    <input type="text" placeholder="Search...">
+  </div>
+  
+  <table id="employeeTable">
+    <thead>
+      <tr>
+        <th>SL NO</th>
+        <th>Geobag RiverBank Image</th>
+        <th>Geobag RiverBank Figure Text</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for i in geobagriverbankdata %}
+      <tr>
+          <td>{{forloop.counter}}</td>
+          <td><img src="/media/{{i.geobag_at_riverbank_img}}" alt="no image"height="150px" width="150px"></td>
+          <td>{{i.image_figure_text}}</td>
+          <td><button class="edit-button"><a href="{% url 'geobagriverbank_edit' i.id %}"target = "blank" >Edit </a></button>
+              <button class="delete-button"><a href="{% url 'geobagriverbank_delete' i.id %}"> Delete</a></button>
+          </td>
+      </tr>
+      {% endfor %} 
+    </tbody>
+  </table>
+  
+  <div class="pagination">
+    <a href="#">&laquo;</a>
+    <a href="#" class="active">1</a>
+    <a href="#">2</a>
+    <a href="#">3</a>
+    <a href="#">4</a>
+    <a href="#">5</a>
+    <a href="#">&raquo;</a>
+  </div>
+
+{% comment %} ====================================================================================== {% endcomment %}
+
+  <h3 class="card-title fw-semibold mb-4" style="text-align: center;">Filled RiverBank Table Page</h3>
+
+  <div class="link_button">
+    <a href="{% url 'filledriverbank' %}">Filled RiverBank Input</a>
+  </div>
+
+
+  <div class="search-container">
+    <input type="text" placeholder="Search...">
+  </div>
+  
+  <table id="employeeTable">
+    <thead>
+      <tr>
+        <th>SL NO</th>
+        <th>Filled RiverBank Image</th>
+        <th>Filled RiverBank Figure Text</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for i in filledriverbankdata %}
+      <tr>
+          <td>{{forloop.counter}}</td>
+          <td><img src="/media/{{i.geobag_counting_riverbank_img}}" alt="no image"height="150px" width="150px"></td>
+          <td>{{i.counting_figure_text}}</td>
+          <td><button class="edit-button"><a href="{% url 'filledriverbank_edit' i.id %}"target = "blank" >Edit </a></button>
+              <button class="delete-button"><a href="{% url 'filledriverbank_delete' i.id %}"> Delete</a></button>
+          </td>
+      </tr>
+      {% endfor %} 
+    </tbody>
+  </table>
+  
+  <div class="pagination">
+    <a href="#">&laquo;</a>
+    <a href="#" class="active">1</a>
+    <a href="#">2</a>
+    <a href="#">3</a>
+    <a href="#">4</a>
+    <a href="#">5</a>
+    <a href="#">&raquo;</a>
+  </div>
+
+{% comment %} ====================================================================================== {% endcomment %}
+
+  <h3 class="card-title fw-semibold mb-4" style="text-align: center;">Prototype Proposed Table Page</h3>
+
+  <div class="link_button">
+    <a href="{% url 'prototypeproposed' %}">Prototype Proposed Input</a>
+  </div>
+
+
+  <div class="search-container">
+    <input type="text" placeholder="Search...">
+  </div>
+  
+  <table id="employeeTable">
+    <thead>
+      <tr>
+        <th>SL NO</th>
+        <th>Prototype Proposed  Image</th>
+        <th>Prototype Proposed  Figure Text</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for i in prototypeproposeddata %}
+      <tr>
+          <td>{{forloop.counter}}</td>
+          <td><img src="/media/{{i.prototype_of_proposed_img}}" alt="no image"height="150px" width="150px"></td>
+          <td>{{i.proposed_figure_text}}</td>
+          <td><button class="edit-button"><a href="{% url 'prototypeproposed_edit' i.id %}"target = "blank" >Edit </a></button>
+              <button class="delete-button"><a href="{% url 'prototypeproposed_delete' i.id %}"> Delete</a></button>
+          </td>
+      </tr>
+      {% endfor %} 
+    </tbody>
+  </table>
+  
+  <div class="pagination">
+    <a href="#">&laquo;</a>
+    <a href="#" class="active">1</a>
+    <a href="#">2</a>
+    <a href="#">3</a>
+    <a href="#">4</a>
+    <a href="#">5</a>
+    <a href="#">&raquo;</a>
+  </div>
+{% comment %} ====================================================================================== {% endcomment %}
+
+<h3 class="card-title fw-semibold mb-4" style="text-align: center;">Preparing Dataset Table Page</h3>
+
+<div class="link_button">
+  <a href="{% url 'preparingdataset' %}">Preparing Dataset Input</a>
+</div>
+
+<div class="search-container">
+  <input type="text" placeholder="Search...">
+</div>
+
+<table id="employeeTable">
+  <thead>
+    <tr>
+      <th>SL NO</th>
+      <th>Preparing Dataset  Image</th>
+      <th>Preparing Dataset  Figure Text</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for i in preparingdatasetdata %}
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td><img src="/media/{{i.preparing_pataset_img}}" alt="no image"height="150px" width="150px"></td>
+        <td>{{i.preparing_dataset_figure_text}}</td>
+        <td><button class="edit-button"><a href="{% url 'preparingdataset_edit' i.id %}"target = "blank" >Edit </a></button>
+            <button class="delete-button"><a href="{% url 'preparingdataset_delete' i.id %}"> Delete</a></button>
+        </td>
+    </tr>
+    {% endfor %} 
+  </tbody>
+</table>
+
+<div class="pagination">
+  <a href="#">&laquo;</a>
+  <a href="#" class="active">1</a>
+  <a href="#">2</a>
+  <a href="#">3</a>
+  <a href="#">4</a>
+  <a href="#">5</a>
+  <a href="#">&raquo;</a>
+</div>
+{% comment %} ====================================================================================== {% endcomment %}
+
+<h3 class="card-title fw-semibold mb-4" style="text-align: center;">Testing Procedures Table Page</h3>
+
+<div class="link_button">
+  <a href="{% url 'testingprocedures' %}">Testing Procedures Input</a>
+</div>
+
+<div class="search-container">
+  <input type="text" placeholder="Search...">
+</div>
+
+<table id="employeeTable">
+  <thead>
+    <tr>
+      <th>SL NO</th>
+      <th>Testing Procedures  Image</th>
+      <th>Testing Procedures  Figure Text</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for i in testingproceduresdata %}
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td><img src="/media/{{i.testing_procedures_img}}" alt="no image"height="150px" width="150px"></td>
+        <td>{{i.testing_procedures_figure_text}}</td>
+        <td><button class="edit-button"><a href="{% url 'testingprocedures_edit' i.id %}"target = "blank" >Edit </a></button>
+            <button class="delete-button"><a href="{% url 'testingprocedures_delete' i.id %}"> Delete</a></button>
+        </td>
+    </tr>
+    {% endfor %} 
+  </tbody>
+</table>
+
+<div class="pagination">
+  <a href="#">&laquo;</a>
+  <a href="#" class="active">1</a>
+  <a href="#">2</a>
+  <a href="#">3</a>
+  <a href="#">4</a>
+  <a href="#">5</a>
+  <a href="#">&raquo;</a>
+</div>
+{% comment %} ====================================================================================== {% endcomment %}
+
+
+
+
+
+</div>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,90 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title> Smart Geobag Counting System </title>
+</head>
+<body>
+<div class = "Top-Section">
+
+    <div class="top_bar">
+        <div class = "logo">
+            <a href=""><img src="" alt=""><i class="fa fa-leaf" aria-hidden="true"></i>
+            </a>
+        <h1>Smart Geobag Counting System</h1>
+
+    </div>
+
+    </div>
+</div>
+
+<div class="body-section">
+<div class="geobag-section">
+    <h1>TISCON Smart Geobag Counting System</h1>
+    <div class="line"></div>
+<div class="Details">
+<h3>(TSGCS)Introduction: </h3>
+<p>Geobag is a geotextile filled with soil and it is Swen, forming pads, which are used to replace conventional marine protection rocks. Geobags have been used in river protection structures for more than a decade. For example, Geobag protection has been employed to prevent erosion in various rivers in Bangladesh, China, and many other countries. The Figure (1) presents an example of some filled-geobag at riverbank side.</p>
+
+<div class="details-img">
+    <a href=""><img src="images/fig-02.PNG" alt=""></a>
+    <p>Figure (1): Some examples of filled-geobag at riverbank </p>
+</div>
+
+<p>Geobag counting is one of essential and critical operations before sending or throwing into water for preventing the water side damage. During the counting period, each geobag is counted and the sealed manually by the respected one or many labors. After sealing the geobag, the respected concern is counted that bag as one. The Figure (2) shows an example of geobag counting which is done manually. </p>
+
+<div class="details-img-2">
+    <a href=""><img src="images/fig-03.PNG" alt=""></a>
+    <p>Figure (2): Some examples of filled-geobag counting at riverbank </p>
+</div>
+
+<p>To protect the water-side damage, the specific number of filled geobags are transferred into the water. This specific quantity relies on the size of the area. However, counting geobag randomly can be highly increased the environment damage. To overcome the issue of random counting, it is important to count the filledgeobag properly in any Geobag based Water Development System. Appropriate counting assists to prevent from destruction of any particular area. Therefore, we can provide the better safety for the people in an particular area. 
+    Basically, now a days, geobag counting process is performed manually by one or many labors in most of the countries. However, manual counting is extremely tedious tasks specially in large area because of time complexity. Moreover, manual counting bounds utilization of labor properly leading to huge resource damage in the working field. At this situation, we need an automatic system which can overcome the mentioned drawbacks of manual counting process. In this study, we proposed a Tiscon Smart Geobag Counting System (TSGS) and it can be utilized in the area of risky riverbank.  
+    TSGS is a novel idea, which can be counted one or more geobag in a particular area very efficiently. The proposed TSGS follows a multi-geobag counting technology using Deep Learning method. Yolov3 is one of the popular object detection technologies which can provides efficient detection outcomes from realtime video. The Figure (3) presents the prototype of TSGS step by step. 
+     
+     </p>
+
+     <div class="details-img-3">
+        <a href=""><img src="images/fig-04.PNG" alt=""></a>
+        <p>Figure (4): The prototype of proposed TSGCS  </p>
+    </div>
+
+</div>
+
+
+<div class="Proposed-Methodology">
+    <h1>Proposed TSGCS Methodology: </h1>
+    <h3>1. Preparing Dataset: </h3>
+    <p>Before applying YOLOv3 in our proposed system, it is mandatory to collect image dataset of geobags properly because it will assist us to achieve better accuracy. After Collecting the dataset, we prepare our dataset as follows:</p>
+
+    <div class="proprosed-img-1">
+        <a href=""><img src="images/fig-01.png" alt=""></a>
+        <p>Figure (5): Preparing Dataset </p>
+    </div>
+
+    <h3>2. Training and Testing Procedures:</h3>
+
+    <p>In our proposed system, we utilize YOLO (You Look Only Once) based Deep Learning architecture to detect the multi-geobag from image or video. There are different versions (v1, v2, v3, v4, v5) available of YOLO. In this case, we used YOLOv3 in our proposed system. YOLOv3 has a very high accuracy while also being able to run in real-time or used for real-time applications. The algorithm uses only one forward propagation pass through the network to make the predictions. YOLOv3 uses a new backbone network Darknet-53 that utilizes residual connections as well as some improvements to the bounding box prediction step, and use of three different scales from which to extract features. The Figure (6) describe the training and testing procedures of the proposed YOLV3 based TSGCS. </p>
+
+    <div class="proprosed-img-2">
+        <a href=""><img src="images/fig-06.PNG" alt=""></a>
+        <p>Figure (6): Training and Testing Procedures </p>
+    </div>
+
+
+</div>
+
+
+</div>
+</div>
+
+
+
+
+</body>
+</html>

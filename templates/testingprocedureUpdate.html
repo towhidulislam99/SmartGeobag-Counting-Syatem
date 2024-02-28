@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title> Smart Geobag Counting System </title>
+</head>
+<body>
+<div class = "Top-Section">
+
+    <div class="top_bar">
+        <div class = "logo">
+          <a href=""><img src="{% static 'images/logo.png' %}"  alt="" >
+            </a>
+        <h1>Smart Geobag Counting System</h1>
+
+    </div>
+
+    </div>
+</div>
+
+<div class="body-section">
+
+    <div class="form-container">
+        <h2>Upload Image and Figure</h2>
+        <form action="{% url 'testingprocedures_update' %}"  method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          <input type="hidden" name="id" value="{{testingproceduresdata.id}}" id=""><br><br>
+        <div class="form-group">
+          {% if testingproceduresdata.testing_procedures_img %}
+          <img src="{{ testingproceduresdata.testing_procedures_img.url }}" alt="{{ testingproceduresdata.testing_procedures_img.name }}" style="height: 100px; width:100px;"><br>
+          {% endif %}
+          <label for="exampleInputImage" class="form-label">Testing Procedures Image Update</label>
+          <input type="file" class="form-control" id="exampleInputImage" name="testing_procedures_img" value="{{ testingproceduresdata.testing_procedures_img.url }}" accept="image/*"><br><br>
+        </div>
+          <div class="form-group">
+            <label for="title">Testing Procedures Image figure Text:</label>
+            <input type="text" id="image_figure_text" name="testing_procedures_figure_text" value ="{{testingproceduresdata.testing_procedures_figure_text}}">
+          </div>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+
+
+
+
+</div>
+
+
+
+
+
+</body>
+</html>
