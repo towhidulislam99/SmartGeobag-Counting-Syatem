@@ -40,6 +40,11 @@ body {
     font-size: 32px;
     color: white;
     align-items: center; 
+    padding: 10px;
+    background-color: blue;
+    cursor: pointer;
+    color: white;
+    border-radius: 10px;
 }
 
 /*==========================================================*/
@@ -60,14 +65,22 @@ body {
 .geobag-section h1{
     font-size: 24px;
     text-align: center;
-    margin-top: 30px;   
+    margin-top: 30px;  
+    padding: 10px;
+    background-color: rgb(63, 241, 8);
+    cursor: pointer;
+    color: white;
+    border-radius: 10px;
+    margin-left: 200px; 
+    margin-right: 200px;
+    margin-bottom: 50px;
 }
-.line{
+/* .line{
     border-bottom: 1px solid black;
     margin-left: 230px;
     margin-right: 230px;
     margin-bottom: 50px;
-}
+} */
 
 .line-1 {
     border-bottom: 1px solid #858383;
