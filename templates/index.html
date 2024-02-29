@@ -25,10 +25,10 @@
 
 <div class="body-section">
 <div class="geobag-section">
-    <h1>TISCON Smart Geobag Counting System</h1>
+    <h1>Smart Geobag Counting System</h1>
     <div class="line"></div>
 <div class="Details">
-<h3>(TSGCS)Introduction: </h3>
+<h3>Introduction: </h3>
 <p>Geobag is a geotextile filled with soil and it is Swen, forming pads, which are used to replace conventional marine protection rocks. Geobags have been used in river protection structures for more than a decade. For example, Geobag protection has been employed to prevent erosion in various rivers in Bangladesh, China, and many other countries. The Figure (1) presents an example of some filled-geobag at riverbank side.</p>
 
 <div class="details-img">
@@ -48,17 +48,29 @@
 </div>
 
 <p>To protect the water-side damage, the specific number of filled geobags are transferred into the water. This specific quantity relies on the size of the area. However, counting geobag randomly can be highly increased the environment damage. To overcome the issue of random counting, it is important to count the filledgeobag properly in any Geobag based Water Development System. Appropriate counting assists to prevent from destruction of any particular area. Therefore, we can provide the better safety for the people in an particular area. 
-    Basically, now a days, geobag counting process is performed manually by one or many labors in most of the countries. However, manual counting is extremely tedious tasks specially in large area because of time complexity. Moreover, manual counting bounds utilization of labor properly leading to huge resource damage in the working field. At this situation, we need an automatic system which can overcome the mentioned drawbacks of manual counting process. In this study, we proposed a Tiscon Smart Geobag Counting System (TSGS) and it can be utilized in the area of risky riverbank.  
-    TSGS is a novel idea, which can be counted one or more geobag in a particular area very efficiently. The proposed TSGS follows a multi-geobag counting technology using Deep Learning method. Yolov3 is one of the popular object detection technologies which can provides efficient detection outcomes from realtime video. The Figure (3) presents the prototype of TSGS step by step. 
+    Basically, now a days, geobag counting process is performed manually by one or many labors in most of the countries. However, manual counting is extremely tedious tasks specially in large area because of time complexity. Moreover, manual counting bounds utilization of labor properly leading to huge resource damage in the working field. At this situation, we need an automatic system which can overcome the mentioned drawbacks of manual counting process. In this study, we proposed a Smart Geobag Counting System and it can be utilized in the area of risky riverbank.  
+    Geobag counting is a novel idea, which can be counted one or more geobag in a particular area very efficiently. The proposed  follows a multi-geobag counting technology using Deep Learning method. Yolov3 is one of the popular object detection technologies which can provides efficient detection outcomes from realtime video. The Figure (3) presents the prototype step by step. 
      
-     </p>
+</p>
 
-     <div class="details-img-3">
+
+ <h3>2. Training and Testing Procedures:</h3>
+
+<p>In our proposed system, we utilize YOLO (You Look Only Once) based Deep Learning architecture to detect the multi-geobag from image or video. There are different versions (v1, v2, v3, v4, v5) available of YOLO. In this case, we used YOLOv3 in our proposed system. YOLOv3 has a very high accuracy while also being able to run in real-time or used for real-time applications. The algorithm uses only one forward propagation pass through the network to make the predictions. YOLOv3 uses a new backbone network Darknet-53 that utilizes residual connections as well as some improvements to the bounding box prediction step, and use of three different scales from which to extract features. The Figure (6) describe the training and testing procedures of the proposed YOLV3. </p>
+
+<div class="proprosed-img-2">
+    {%for i in testingproceduresdata%}
+    <a href=""><img src="{{ i.testing_procedures_img.url }}" alt="Your Image Description"></a>
+    <p>{{i.testing_procedures_figure_text}}</p>
+    {%endfor%}
+</div> 
+
+     <!-- <div class="details-img-3">
         {%for i in prototypeproposeddata%}
         <a href=""><img src="{{ i.prototype_of_proposed_img.url }}" alt="Your Image Description"></a>
         <p>{{i.proposed_figure_text}}</p>
         {%endfor%}
-    </div>
+    </div> -->
 
 </div>
 
@@ -89,6 +101,25 @@
 
 
 </div>
+
+
+<div class="toonificationSection">
+    <div class="header-section">
+        {% for i in toonificationheadingdata %}
+        <h1>{{i.toonification_heading}}</h1>
+        {%endfor%}
+    </div>
+    <div class="image-section1">
+        {% for i in toonificationimagedata %}
+            <img src="{{ i.toonification_photo.url }}" alt="Your Image Description">
+        {%endfor%}
+        
+    </div>
+    <div class="line1"></div>
+    <div class="line1"></div>
+</div>
+
+
 
 
 </div>

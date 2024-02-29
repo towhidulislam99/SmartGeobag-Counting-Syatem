@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title> Smart Geobag Counting System </title>
+</head>
+<body>
+<div class = "Top-Section">
+
+    <div class="top_bar">
+        <div class = "logo">
+          <a href=""><img src="{% static 'images/logo.png' %}"  alt="" >
+            </a>
+        <h1>Smart Geobag Counting System</h1>
+
+    </div>
+
+    </div>
+</div>
+
+<div class="body-section">
+
+    <div class="form-container">
+        <h2>Upload Image and Figure</h2>
+        <form action="{% url 'toonificationheadinginsert' %}"  method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+          <div class="form-group">
+            <label for="exampleInputtext1" class="form-label">Toonification Section Heading</label>
+            <input type="text" class="form-control" id="exampleInputtext1" name="toonification_heading" aria-describedby="textHelp">
+          </div>
+          
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+
+
+</div>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

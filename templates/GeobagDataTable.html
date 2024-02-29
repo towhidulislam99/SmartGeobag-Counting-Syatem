@@ -274,6 +274,98 @@
 {% comment %} ====================================================================================== {% endcomment %}
 
 
+{% comment %} ====================================================================================== {% endcomment %}
+
+<h3 class="card-title fw-semibold mb-4" style="text-align: center;">Toonification Heading Table Page </h3>
+
+<div class="link_button">
+  <a href="{% url 'toonificationheadingpage' %}">Toonification Heading Input</a>
+</div>
+
+<div class="search-container">
+  <input type="text" placeholder="Search...">
+</div>
+
+<table id="employeeTable">
+  <thead>
+    <tr>
+      <th>SL NO</th>
+      <th>Toonification Heading</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for i in toonificationheadingdata %}
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{i.toonification_heading}}</td>
+        <td><button class="edit-button"><a href="{% url 'ToonificationHeadingpageedit' i.id %}"target = "blank" >Edit </a></button>
+            <button class="delete-button"><a href="{% url 'deleteToonificationHeading' i.id %}"> Delete</a></button>
+        </td>
+    </tr>
+    {% endfor %} 
+  </tbody>
+</table>
+
+<div class="pagination">
+  <a href="#">&laquo;</a>
+  <a href="#" class="active">1</a>
+  <a href="#">2</a>
+  <a href="#">3</a>
+  <a href="#">4</a>
+  <a href="#">5</a>
+  <a href="#">&raquo;</a>
+</div>
+{% comment %} ====================================================================================== {% endcomment %}
+
+
+{% comment %} ====================================================================================== {% endcomment %}
+
+<h3 class="card-title fw-semibold mb-4" style="text-align: center;">Toonification Image Table Page</h3>
+
+<div class="link_button">
+  <a href="{% url 'toonificationimagepage' %}">Toonification Image Upload </a>
+</div>
+
+<div class="search-container">
+  <input type="text" placeholder="Search...">
+</div>
+
+<table id="employeeTable">
+  <thead>
+    <tr>
+      <th>SL NO</th>
+      <th>Toonification Image</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for i in toonificationimagedata %}
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td><img src="/media/{{i.toonification_photo}}" alt="no image"height="50px" width="50px"></td>
+        <td><button class="edit-button"><a href="{% url 'toonificationimagepageedit' i.id %}"target = "blank" >Edit </a></button>
+            <button class="delete-button"><a href="{% url 'deletetoonificationimage' i.id %}"> Delete</a></button>
+        </td>
+    </tr>
+    {% endfor %} 
+  </tbody>
+</table>
+
+<div class="pagination">
+  <a href="#">&laquo;</a>
+  <a href="#" class="active">1</a>
+  <a href="#">2</a>
+  <a href="#">3</a>
+  <a href="#">4</a>
+  <a href="#">5</a>
+  <a href="#">&raquo;</a>
+</div>
+
+
+{% comment %} ====================================================================================== {% endcomment %}
+
+
 
 
 

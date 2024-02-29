@@ -1,0 +1,54 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title> Smart Geobag Counting System </title>
+</head>
+<body>
+<div class = "Top-Section">
+
+    <div class="top_bar">
+        <div class = "logo">
+          <a href=""><img src="{% static 'images/logo.png' %}"  alt="" >
+            </a>
+        <h1>Smart Geobag Counting System</h1>
+
+    </div>
+
+    </div>
+</div>
+
+<div class="body-section">
+
+    <div class="form-container">
+        <h2>Upload Image and Figure</h2>
+        <form action="{% url 'toonificationimageupdate' %}"  method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="hidden" name="id" value="{{toonificationimagedata.id}}" id=""><br><br>
+          <div class="form-group">
+            {% if toonificationimagedata.toonification_photo %}
+              <img src="{{ toonificationimagedata.toonification_photo.url }}" alt="{{ toonificationimagedata.toonification_photo.name }}" style="height: 100px; width:100px;"><br>
+              {% endif %}
+              <label for="exampleInputImage" class="form-label">Toonification Image Upload</label>
+              <input type="file" class="form-control" id="exampleInputImage" name="toonification_photo" value="{{ toonificationimagedata.toonification_photo.url }}" accept="image/*"><br><br>
+          </div>
+         
+          <button type="submit">Update</button>
+        </form>
+      </div>
+
+</div>
+
+
+</body>
+</html>
+
+
+
+

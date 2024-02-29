@@ -21,4 +21,11 @@ class PreparingDataset(models.Model):
 class TestingProcedures(models.Model):
     testing_procedures_img = models.ImageField(upload_to='Geobag_at_RiverBank_img/', default='No images')
     testing_procedures_figure_text = models.CharField(max_length = 500)
+    
+
+class ToonificationHeading(models.Model):
+   toonification_heading = models.CharField(max_length = 500)
+   
+class ToonificationImage(models.Model):
+   toonification_photo = models.ImageField(upload_to='ToonificationImage/', default='No images')
 

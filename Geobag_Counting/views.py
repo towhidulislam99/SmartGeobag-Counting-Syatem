@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
-from .models import GeobagRiverBank,FilledRiverBank,PrototypeProposed,PreparingDataset,TestingProcedures
+from .models import GeobagRiverBank,FilledRiverBank,PrototypeProposed,PreparingDataset,TestingProcedures,TestingProcedures,ToonificationHeading,ToonificationImage
 import os
 
 def Geobag(request):
@@ -10,6 +10,8 @@ def Geobag(request):
     prototypeproposeddata = PrototypeProposed.objects.all()
     preparingdatasetdata = PreparingDataset.objects.all()
     testingproceduresdata = TestingProcedures.objects.all()
+    toonificationheadingdata = ToonificationHeading.objects.all()
+    toonificationimagedata = ToonificationImage.objects.all()
    
     
 
@@ -19,6 +21,8 @@ def Geobag(request):
         'prototypeproposeddata': prototypeproposeddata,
         'preparingdatasetdata': preparingdatasetdata,
         'testingproceduresdata': testingproceduresdata,
+        'toonificationheadingdata': toonificationheadingdata,
+        'toonificationimagedata': toonificationimagedata,
     }
     return render(request, 'index.html', data)
 
@@ -32,6 +36,8 @@ def Geobagdatatable(request):
     prototypeproposeddata = PrototypeProposed.objects.all()
     preparingdatasetdata = PreparingDataset.objects.all()
     testingproceduresdata = TestingProcedures.objects.all()
+    toonificationheadingdata = ToonificationHeading.objects.all()
+    toonificationimagedata = ToonificationImage.objects.all()
    
     
 
@@ -41,6 +47,8 @@ def Geobagdatatable(request):
         'prototypeproposeddata': prototypeproposeddata,
         'preparingdatasetdata': preparingdatasetdata,
         'testingproceduresdata': testingproceduresdata,
+        'toonificationheadingdata': toonificationheadingdata,
+        'toonificationimagedata': toonificationimagedata,
     }
     return render(request, 'GeobagDataTable.html', data)
 
@@ -302,4 +310,100 @@ def testingprocedures_update(request):
 def testingprocedures_delete(request, id):
     testingprocedures_obj = get_object_or_404(TestingProcedures, id=id)
     testingprocedures_obj.delete()
+    return redirect('Geobagdatatable')
+
+
+#     <-------Toonification Heading  Section Work -----------------> 
+#====================================================================================
+
+def toonificationheadingpage(request):
+    return render(request, 'toonificationheadingpage.html')
+
+def toonificationheadinginsert(request):
+    if request.method == 'POST':
+        toonification_heading = request.POST.get('toonification_heading')
+        
+        toonificationHeading_obj = ToonificationHeading()
+        toonificationHeading_obj.toonification_heading = toonification_heading
+        toonificationHeading_obj.save()
+        
+        messages.success(request, 'Data submitted successfully.')
+        return redirect('Geobagdatatable') 
+    
+    return render(request, 'toonificationheadingpage.html')  
+
+def Toonificationdatatable(request):
+    toonificationheadingdata = ToonificationHeading.objects.all()
+    data = {"toonificationheadingdata": toonificationheadingdata}
+    return render(request,'toonificationdatatable.html', data)
+
+def ToonificationHeadingpageedit(request, id):
+    toonificationheadingdata = ToonificationHeading.objects.get(id=id)
+    data = {"toonificationheadingdata": toonificationheadingdata}
+    return render(request,'toonificationheadingpageUpdate.html',data)
+
+def ToonificationHeadingupdate(request):
+    id = request.POST.get('id')
+    toonification_heading = request.POST.get('toonification_heading')
+   
+    # Get the user object by ID
+    toonificationHeading_obj = get_object_or_404(ToonificationHeading, id=id)
+    
+    toonificationHeading_obj.toonification_heading = toonification_heading
+    toonificationHeading_obj.save()
+    return redirect('Geobagdatatable')
+
+def deleteToonificationHeading(request, id):
+    toonificationHeading_obj = get_object_or_404(ToonificationHeading, id=id)
+    toonificationHeading_obj.delete()
+    return redirect('Geobagdatatable')
+
+#     <-------Toonification Imgae/Photo Section Work -----------------> 
+#====================================================================================
+
+def toonificationimagepage(request):
+    return render(request, 'toonificationimagepage.html')
+
+def toonificationimageinsert(request):
+    if request.method == 'POST':
+        toonification_photo = request.FILES.get('toonification_photo')
+        
+        toonificationImage_obj = ToonificationImage()
+        toonificationImage_obj.toonification_photo = toonification_photo
+        toonificationImage_obj.save()
+        
+        messages.success(request, 'Data submitted successfully.')
+        return redirect('Geobagdatatable')  
+    
+    return render(request, 'toonificationimagepage.html')  
+
+def toonificationimagedatatable(request):
+    toonificationimagedata = ToonificationImage.objects.all()
+    data = {"toonificationimagedata": toonificationimagedata}
+    return render(request,'toonificationimagedatatable.html', data)
+
+def toonificationimagepageedit(request, id):
+    toonificationimagedata = ToonificationImage.objects.get(id=id)
+    data = {"toonificationimagedata": toonificationimagedata}
+    return render(request,'tonificationimagepageUpdate.html',data)
+
+def toonificationimageupdate(request):
+    id = request.POST.get('id')
+
+    # Get the user object by ID
+    toonificationImage_obj = get_object_or_404(ToonificationImage, id=id)
+    
+     # Check if new image and video files are provided
+    if 'toonification_photo' in request.FILES:
+        # If a new image is provided, delete the old one if it exists
+        if toonificationImage_obj.toonification_photo:
+            os.remove(toonificationImage_obj.toonification_photo.path)
+        toonificationImage_obj.toonification_photo = request.FILES['toonification_photo']
+   
+    toonificationImage_obj.save()
+    return redirect('Geobagdatatable')
+
+def deletetoonificationimage(request, id):
+    toonificationImage_obj = get_object_or_404(ToonificationImage, id=id)
+    toonificationImage_obj.delete()
     return redirect('Geobagdatatable')

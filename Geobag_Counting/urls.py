@@ -56,6 +56,22 @@ urlpatterns = [
     path('testingprocedures_edit/<int:id>', views.testingprocedures_edit, name = 'testingprocedures_edit'),
     path('testingprocedures_update/', views.testingprocedures_update, name = 'testingprocedures_update'),
     path('testingprocedures_delete/<int:id>', views.testingprocedures_delete, name = 'testingprocedures_delete'),
+    
+    
+    path('toonificationheadingpage/', views.toonificationheadingpage, name='toonificationheadingpage'),
+    path('toonificationheadinginsert/', views.toonificationheadinginsert, name='toonificationheadinginsert'),
+    path('Toonificationdatatable/', views.Toonificationdatatable, name='Toonificationdatatable'),
+    path('ToonificationHeadingpageedit/<int:id>', views.ToonificationHeadingpageedit, name='ToonificationHeadingpageedit'),
+    path('ToonificationHeadingupdate/', views.ToonificationHeadingupdate, name='ToonificationHeadingupdate'),
+    path('deleteToonificationHeading/<int:id>', views.deleteToonificationHeading, name='deleteToonificationHeading'),
+    
+    
+    path('toonificationimagepage/', views.toonificationimagepage, name='toonificationimagepage'),
+    path('toonificationimageinsert/', views.toonificationimageinsert, name='toonificationimageinsert'),
+    path('toonificationimagedatatable/', views.toonificationimagedatatable, name='toonificationimagedatatable'),
+    path('toonificationimagepageedit/<int:id>', views.toonificationimagepageedit, name='toonificationimagepageedit'),
+    path('toonificationimageupdate/', views.toonificationimageupdate, name='toonificationimageupdate'),
+    path('deletetoonificationimage/<int:id>', views.deletetoonificationimage, name='deletetoonificationimage'),
      
      
 ]+static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
